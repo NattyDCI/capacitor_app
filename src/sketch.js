@@ -1,11 +1,16 @@
 import p5 from 'p5';
+import fontUrl from './assets/fonts/Orbitron-Regular.ttf?url';
 
 new p5((p) => {
   let timer = 10;
   let running = false;
   let lastTime = 0;
 
-  p.setup = () => {
+ let orbitronFont;
+
+  p.setup = async () => {
+
+    orbitronFont = await p.loadFont(fontUrl);
     const cnv = p.createCanvas(400, 400, p.WEBGL);
     cnv.parent('p5-container');
 
@@ -33,6 +38,11 @@ new p5((p) => {
     p.resetMatrix();
     p.fill(255);
     p.textSize(64);
+
+
+    if (orbitronFont) {
+      p.textFont(orbitronFont);
+    }
     p.textAlign(p.CENTER, p.CENTER);
     p.text(timer, 0, 120);
   };
