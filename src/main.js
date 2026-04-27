@@ -155,11 +155,16 @@ function renderHome() {
 function renderProject() {
   const project = getCurrentProject();
   if (!project) return;
+  const formattedTime = formatTime(project.timeSpent);
 
   document.getElementById('projectTitle').textContent = project.name;
   document.getElementById('rowCount').textContent = project.rows;
   document.getElementById('progressText').textContent = `${calculateProgress(project)}% project complete`;
   document.getElementById('modalTimerText').textContent = formatTime(project.timeSpent);
+  document.getElementById('timeInvestedText').textContent = formattedTime;
+  document.getElementById('modalTimerText').textContent = formattedTime;
+
+
 
   const list = document.getElementById('milestonesList');
   list.innerHTML = '';
