@@ -84,13 +84,102 @@ Whenever you make changes to your web app:
 npm run build
 npx cap copy
 ```
+Every time you change code:
+
+You MUST do: (this is what I am doing)
+
+`npm run build`
+`npx cap sync android`
+
+Then re-run the app from Android Studio.
+
+press run again
+- top bar -> green button
+- make sure the emulator is selected
+
+---
+
+## Running the App on Android Emulator
+
+This project uses **Vite + Capacitor + Android Studio**. Follow these steps to run the app on an Android emulator.
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+### 2. Build the web app
+
+```bash
+npm run build
+```
+
+This generates the production files in the `dist/` folder.
+
+---
+
+### 3. Sync with Android
+
+```bash
+npx cap sync android
+```
+
+This copies the built web app into the Android project.
+
+---
+
+### 4. Open in Android Studio
+
+```bash
+npx cap open android
+```
+
+---
+
+### 5. Create and start an emulator
+
+In Android Studio:
+
+1. Go to **Tools → Device Manager**
+2. Click **Create Device**
+3. Choose a device (e.g. Pixel 5)
+4. Select a system image (recommended: API 33 or API 34 with Google APIs)
+5. Download the image if prompted
+6. Click **Finish**
+7. Press ▶️ to start the emulator
+
+---
+
+### 6. Run the app
+
+* Select the emulator at the top of Android Studio
+* Click the green **▶️ Run** button
+
+The app will install and open on the emulator.
+
+---
+
+### 7. Updating the app
+
+Every time you make changes, run:
+
+```bash
+npm run build
+npx cap sync android
+```
 
 Then re-run the app from Android Studio.
 
 ---
 
-## 🎯 Goal
+### Notes
 
-The goal of this project is to build a Pomodoro timer and extend it with native mobile capabilities using Capacitor.
+* Haptic feedback only works on a real device or emulator
+* First emulator launch may take a few minutes
+* If the app shows a blank screen, ensure you ran `npm run build` before syncing
 
 ---
+
