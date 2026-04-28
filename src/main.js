@@ -1,5 +1,5 @@
 import p5 from 'p5';
-import { Haptics, ImpactStyle } from '@capacitor/haptics';
+import { Haptics } from '@capacitor/haptics';
 import soundUrl from './assets/cheers_finished_sound.mp3';
 import soundUrlRow from './assets/counter_addordelete.mp3';
 import soundUrlReset from './assets/reset_swoosh.mp3';
@@ -10,6 +10,7 @@ import scarfImg from './assets/images/scarf.jpg';
 import sweaterImg from './assets/images/sweater.jpg';
 import socksImg from './assets/images/socks.jpg';
 import defaultYarnImg from './assets/images/default_yarn.jpg';
+import runningGif from "./assets/images/running_sheep.gif";
 
 const imageLibrary = {
   shawl: shawlImg,
@@ -61,9 +62,10 @@ function showScreen(screenId) {
 
 async function triggerHaptic() {
   try {
-    await Haptics.impact({ style: ImpactStyle.Medium });
+    await Haptics.vibrate({ duration: 500 });
+    console.log('Vibration triggered');
   } catch (error) {
-    console.log('Haptics only works on device:', error);
+    console.log('Haptics error:', error);
   }
 }
 
@@ -216,9 +218,23 @@ function renderProject() {
   });
 }
 
+function updateTimerAnimation() {
+  const image = document.getElementById('timerRunningImage');
+  const idleText = document.getElementById('timerIdleText');
+
+  if (!image || !idleText) return;
+
+  image.src = runningGif;
+
+  image.classList.toggle('hidden', !timerRunning);
+  idleText.classList.toggle('hidden', timerRunning);
+}
+
 function updateTimerButton() {
   document.getElementById('modalStartTimerBtn').textContent = timerRunning ? 'Pause' : 'Start';
+  updateTimerAnimation();
 }
+
 
 function stopTimer() {
   clearInterval(timerInterval);
@@ -226,6 +242,7 @@ function stopTimer() {
   timerRunning = false;
   lastTimerUpdate = null;
   updateTimerButton();
+  updateTimerAnimation(); 
 }
 
 function startTimer() {
@@ -250,9 +267,12 @@ function startTimer() {
       lastTimerUpdate = now;
 
       saveProjects();
+      
 
       document.getElementById('modalTimerText').textContent =
         formatTime(currentProject.timeSpent);
+      document.getElementById("timeInvestedText").textContent = 
+      formatTime(currentProject.timeSpent);
     }
   }, 1000);
 }
