@@ -1,7 +1,27 @@
 @font-face {
-  font-family: 'Orbitron';
-  src: url('./assets/fonts/Orbitron-Regular.ttf');
+  font-family: "Orbitron";
+  src: url("./assets/fonts/Orbitron-Regular.ttf");
   font-weight: 400;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-Bold.ttf");
+  font-weight: 800;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-Medium.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("./assets/fonts/Manrope-Regular.ttf");
+  font-weight: 500;
 }
 
 body {
@@ -32,16 +52,19 @@ h1 {
 .subtitle {
   margin-top: 0;
   opacity: 0.7;
+  font-family: "Manrope";
+  font-weight:800
 }
 
 .main-btn,
 button {
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 10px 14px;
-  background: #222;
+  background: #705d5d;
   color: white;
   font-weight: 600;
+  font-family: "Manrope"
 }
 
 .back-btn {
@@ -69,9 +92,49 @@ input {
 .project-card {
   position: relative;
   background-color: grey;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Manrope";
+  font-weight: 300;
+}
+
+.card-content {
+  font-family: "Manrope";
+  font-weight: 400;
+  .project-name {
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    margin-top: 10px;
+    font-weight: 800;
+    
+  }
+  .stats-line {
+    display: flex;
+    align-content: center;
+    margin-top: 10px;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+
+    .status-title {
+      color: rgb(30, 30, 30);
+      margin: 0;
+      
+    }
+    .progress-pill {
+      margin: 0;
+      background-color: #705d5d;
+      color:white;
+      width: 50px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      border-radius: 30px;
+      font-weight:800;
+    }
+  }
 }
 
 .delete-project-btn {
@@ -163,37 +226,9 @@ li.done span {
   display: block;
 }
 
-.stats-line {
-  display: flex;
-  align-content: center;
-  margin-top: 10px;
-  height: fit-content;
-  align-items: center;
-  justify-content: space-between
-
-  ;}
-
-
-.progress-pill {
-  margin: 0;
-  background-color: #6b4f4f; 
-  width: 50px;
-  height: 30px;
-  align-items: center;  
-  justify-content:center;
-  display: flex;
-  border-radius: 30px;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.status-title {
-  font-family: 'Courier New', Courier, monospace;
-}
-
 #milestonesList {
   max-height: 200px;
   overflow-y: auto;
-  
 }
 
 .modal.hidden {
@@ -222,7 +257,7 @@ li.done span {
   border-radius: 24px;
   background: #fffaf5;
   text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 #modalTimerText {
@@ -234,4 +269,11 @@ li.done span {
   display: flex;
   justify-content: center;
   margin-bottom: 12px;
+}
+
+
+#projectImage {
+  width: 80%;
+  margin: 12px 0;
+  object-fit: cover;
 }

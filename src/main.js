@@ -115,12 +115,15 @@ function renderHome() {
     card.innerHTML = `
       <button class="delete-project-btn" aria-label="Delete project">×</button>
       <img src="${project.image}" alt="${project.name}" class="project-image" />
-      <strong>${project.name}</strong>
-
-      <div class="stats-line">
-        <p class="status-title">Status</p>
-        <div class="progress-pill">${calculateProgress(project)}%</div>
+      
+      <div class="card-content">
+        <p class="project-name">${project.name}</p>
+          <div class="stats-line">
+            <p class="status-title">Status</p>
+            <div class="progress-pill">${calculateProgress(project)}%</div>
+          </div>
       </div>
+
     `;
 
     card.addEventListener('click', () => {
@@ -164,7 +167,10 @@ function renderProject() {
   document.getElementById('timeInvestedText').textContent = formattedTime;
   document.getElementById('modalTimerText').textContent = formattedTime;
 
-
+  const projectImage = document.getElementById('projectImage');
+  projectImage.innerHTML = `
+    <img src="${project.image}" alt="${project.name}" class="project-detail-image" />
+    `;
 
   const list = document.getElementById('milestonesList');
   list.innerHTML = '';
@@ -291,6 +297,7 @@ function setupUI() {
     renderHome();
     showScreen('homeScreen');
   });
+
 
   document.getElementById('increaseRowBtn').addEventListener('click', async () => {
     const project = getCurrentProject();
