@@ -441,9 +441,7 @@ function setupUI() {
       renderProject();
     });
 
-  document
-    .getElementById("closeCelebrationBtn")
-    .addEventListener("click", () => {
+  document.getElementById("closeCelebrationBtn").addEventListener("click", () => {
       renderProject();
       showScreen("projectScreen");
     });

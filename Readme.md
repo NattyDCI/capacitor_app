@@ -208,7 +208,6 @@ json
 "p5": "^1.9.x"
 }
 
-x
 🔢 Versiones
 Node.js: v18+
 npm: v9+
@@ -230,6 +229,10 @@ Another challenge was working with native features like haptic feedback. Testing
 Handling data with localStorage also required attention, particularly making sure that project information, progress, and time tracking stayed consistent across sessions.
 
 Overall, the project evolved from a simple timer into a more structured tool, which led me to rethink the user flow and focus on keeping the app both functional and easy to use. It also helped me understand the importance of small UX details, such as providing feedback to the user through visual progress and simple interactions.
+
+I also found it challenging to work with p5.js in instance mode. The syntax was different from the global `setup()` and `draw()` functions I had used before, so it took time to understand why the animation had to be written inside `new p5((p) => {...})`.
+
+Working with the DOM was another important challenge. Since the app manually changes screens and updates elements from JavaScript, choosing clear CSS class names and HTML IDs became essential. At times this was confusing, but it helped me understand how closely structure, styling and JavaScript logic are connected in an interactive application.
 
 ### How to run the App
 
@@ -312,3 +315,10 @@ This project was developed by combining official documentation and practical tut
 
 This project was built as a learning exercise to understand how web applications can be extended with native mobile capabilities.
 ```
+
+## 🌐 Live Demo
+
+A web version of the app is available here:  
+[Live demo link]
+
+> Note: This demo runs in the browser. Some native Android features, such as haptic feedback, are only fully available when running the app on a real device through Capacitor.
