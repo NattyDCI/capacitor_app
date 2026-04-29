@@ -20,6 +20,48 @@ Built with a web stack (Vite + JavaScript) and wrapped as a native Android app u
 
 ---
 
+### 🧱 Folder Structure
+
+project-folder/
+│
+├── src/
+│ ├── assets/
+│ │ ├── images/
+│ │ ├── fonts/
+│ │ └── sounds/
+│ │
+│ ├── main.js
+│ ├── style.css
+│ └── sketch.js
+│
+├── index.html
+├── package.json
+├── vite.config.js
+│
+├── dist/
+├── android/
+└── README.md
+
+---
+
+### 📦 Dependencies
+
+json
+{
+"@capacitor/core": "^5.x",
+"@capacitor/cli": "^5.x",
+"@capacitor/haptics": "^5.x",
+"p5": "^1.9.x"
+}
+
+🔢 Versions
+Node.js: v18+
+npm: v9+
+Vite: ^5.x
+Capacitor: ^5.x
+Android Studio: Flamingo o superior
+Android SDK: API 33 / 34
+
 ## 📱 Capacitor Usage
 
 - Web app converted into Android app using Capacitor
@@ -55,13 +97,23 @@ Built with a web stack (Vite + JavaScript) and wrapped as a native Android app u
 
 These sketches show the early interface ideas before implementation.
 
-![Sketch 1](./src/assets/images/bocetos_idea_inicial.jpg)
+![Sketch 1](./src/assets/images/bocetos_idea_inicial.png)
 
 ---
 
-## 🚀 How to Use
+## 🚀How to use the app
+
+1. Create a new project using the "New project" button
+2. Add rows using the + / - buttons
+3. Add milestones and mark them as completed
+4. Open the timer and start tracking time
+5. When a milestone is completed, a celebration animation appears
+
+All right, let's explain that again in a visual way.
 
 ### Step 1 — Create a project
+
+This example shows how to create a project
 
 <p align="center">
   <img src="./src/assets/videos/funcionamiento_paso1.gif" width="260" />
@@ -71,6 +123,8 @@ These sketches show the early interface ideas before implementation.
 
 ### Step 2 — Add milestones
 
+When you first grab a new pattern and read through it, you can add a list of milestones, these are important chunks of work in your project. Once you finished one of those you are encouraged to keep working on the next goal, and this makes the whole work more manageable.
+
 <p align="center">
   <img src="./src/assets/videos/funcionamiento_paso2.gif" width="260" />
 </p>
@@ -78,6 +132,8 @@ These sketches show the early interface ideas before implementation.
 ---
 
 ### Step 3 — Track time
+
+Once you have created a project you can start tracking time, so open your timer whenever you want to sit a knit for a bit.
 
 <p align="center">
   <img src="./src/assets/videos/funcionamiento_paso3.gif" width="260" />
@@ -144,14 +200,15 @@ project-folder/
 
 ### 📦 Dependencias principales
 
-```json
+json
 {
-  "@capacitor/core": "^5.x",
-  "@capacitor/cli": "^5.x",
-  "@capacitor/haptics": "^5.x",
-  "p5": "^1.9.x"
+"@capacitor/core": "^5.x",
+"@capacitor/cli": "^5.x",
+"@capacitor/haptics": "^5.x",
+"p5": "^1.9.x"
 }
 
+x
 🔢 Versiones
 Node.js: v18+
 npm: v9+
@@ -162,43 +219,7 @@ Android SDK: API 33 / 34
 
 </details>
 
-<details> <summary><strong>Project Explanation (English)</strong></summary>
-
-Concept
-
-KnitTracker is a productivity app tailored for knitting workflows.
-
-It enables users to manage multiple projects simultaneously by combining:
-
-structured milestones
-time tracking
-progress visualization
-Core idea
-
-The goal is to centralize project tracking into a single interface where users can:
-
-log their progress
-track time spent
-stay motivated through feedback
-Technical approach
-Built with Vite + JavaScript
-Wrapped using Capacitor
-Uses LocalStorage for persistence
-Integrates native features (Haptics)
-Design evolution
-
-The app evolved from:
-➡️ a simple timer
-➡️ into a structured project management tool
-
-This required rethinking:
-
-navigation
-data structure
-user flow
-</details>
-
-## Challenges 
+## Challenges
 
 ## ⚡ Challenges & Learnings
 
@@ -210,39 +231,35 @@ Handling data with localStorage also required attention, particularly making sur
 
 Overall, the project evolved from a simple timer into a more structured tool, which led me to rethink the user flow and focus on keeping the app both functional and easy to use. It also helped me understand the importance of small UX details, such as providing feedback to the user through visual progress and simple interactions.
 
-## How to run the App
+### How to run the App
 
 Install dependecies
-
-‘npm install‘
+`npm install`
 
 Build the App
 
-‘npm run build‘
+`npm run build`
 
 Sync with Android
 
-‘npx cap sync android‘
-
+`npx cap sync android`
 
 Open in Android Studio
 
-‘npx cap open android‘
+`npx cap open android`
 
-Run the app
+once you Open Android Studio you can start the emulator by first going to (Device Manager)
 
-Open Android Studio
-Start an emulator (Device Manager)
-on Device Manager I chose Pixel 5 API 33 / 34
+on Device Manager choose Pixel 5 API 33 / 34
+
 Click Run ▶️
-
 
 📝 Notes
 Haptics work best on real devices
 Emulator behavior may vary
 Always rebuild before syncing
-```
 
+```
 
 ## 📚 References & Learning Resources
 
@@ -250,47 +267,48 @@ This project was developed by combining official documentation and practical tut
 
 ### 📖 Official Documentation
 
-- Capacitor Documentation  
+- Capacitor Documentation
   https://capacitorjs.com/docs
 
-- Capacitor Haptics API  
+- Capacitor Haptics API
   https://capacitorjs.com/docs/apis/haptics
 
-- Vite Documentation  
+- Vite Documentation
   https://vitejs.dev/guide/
 
-- Android Studio Documentation  
+- Android Studio Documentation
   https://developer.android.com/studio
 
-- Web Storage API (localStorage)  
+- Web Storage API (localStorage)
   https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
 ---
 
 ### Video Resources
 
-- "Capacitor Crash Course"  
+- "Capacitor Crash Course"
   https://www.youtube.com/watch?v=4n6X9y6Zy6Q
 
-- "Build Android Apps with Capacitor"  
+- "Build Android Apps with Capacitor"
   https://www.youtube.com/watch?v=8s3vP3k5s0E
 
-- "Vite JS Crash Course"  
+- "Vite JS Crash Course"
   https://www.youtube.com/watch?v=KCrXgy8qtjM
 
-- "Understanding localStorage in JavaScript"  
+- "Understanding localStorage in JavaScript"
   https://www.youtube.com/watch?v=GihQAC1I39Q
 
 ---
 
 ### Additional Learning
 
-- Experimentation with native features through Capacitor plugins  
-- Testing differences between emulator and real devices  
-- Iterative UI design and UX improvements  
+- Experimentation with native features through Capacitor plugins
+- Testing differences between emulator and real devices
+- Iterative UI design and UX improvements
 
 ---
 
 ### ⚠️ Note
 
 This project was built as a learning exercise to understand how web applications can be extended with native mobile capabilities.
+```
