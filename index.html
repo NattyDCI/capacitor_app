@@ -2,82 +2,110 @@
 <html lang="es">
 
 <head>
+  <!-- Configuración básica del documento -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pomodoro App</title>
-
+  <title>KnitTrack App</title>
 </head>
-
-
+<!-- Estructura general de la app. Uso diferentes "screens" que se muestran/ocultan con JS -->
 <body>
+  <!-- Contenedor principal de toda la app -->
   <div id="app">
+
+    <!-- Pantalla principal: lista de proyectos -->
     <section id="homeScreen" class="screen active">
       <img src="./src/assets/images/knitTrack_logo.png" alt="KnitTrack" class="app-logo" />
       <p class="subtitle">Your knitting projects</p>
 
+      <!-- Aquí se renderizan dinámicamente los proyectos -->
       <div id="projectsGrid"></div>
 
+      <!-- Botón para crear nuevo proyecto -->
       <button id="showNewProjectBtn" class="main-btn">+ New project</button>
     </section>
 
+    <!-- Pantalla para crear un proyecto -->
     <section id="newProjectScreen" class="screen">
       <button id="cancelNewProjectBtn" class="back-btn">&lt; Go back</button>
       <h1>New project</h1>
 
+      <!-- Input para nombre -->
       <input id="projectNameInput" type="text" placeholder="Project name" />
+
+      <!-- Botón que crea el proyecto -->
       <button id="createProjectBtn" class="main-btn">Create project</button>
     </section>
 
+    <!-- Pantalla de detalle de un proyecto -->
     <section id="projectScreen" class="screen">
       <button id="backHomeBtn" class="back-btn">&lt; Go back</button>
+
+      <!-- Imagen del proyecto -->
       <div id="projectImage"></div>
 
+      <!-- Nombre del proyecto -->
       <h1 id="projectTitle"></h1>
 
+      <!-- Contador de filas -->
       <div class="counter">
         <button id="decreaseRowBtn">-</button>
         <span id="rowCount">0</span>
         <button id="increaseRowBtn">+</button>
       </div>
 
+      <!-- Progreso en % -->
       <p id="progressText">0% project complete</p>
+
+      <!-- Tiempo acumulado -->
       <p class="time-invested">
         Time invested: <span id="timeInvestedText">00:00:00</span>
       </p>
 
+      <!-- Lista de milestones -->
       <h2>Milestones</h2>
 
+      <!-- Añadir milestone -->
       <div class="add-row">
         <input id="milestoneInput" type="text" placeholder="Add milestone" />
         <button id="addMilestoneBtn">Add</button>
       </div>
 
+      <!-- Lista dinámica -->
       <ul id="milestonesList"></ul> 
 
+      <!-- Abre el modal del timer -->
       <button id="openTimerModalBtn">Open timer</button>
 
+      <!-- Modal del timer (oculto por defecto) -->
       <div id="timerModal" class="modal hidden">
         <div class="modal-backdrop"></div>
 
         <div class="timer-modal-card">
+
+          <!-- Aquí se podría renderizar el canvas de p5 -->
           <div id="timer-p5-container"></div>
 
+          <!-- Zona fija donde se muestra animación o texto -->
           <div class="timer-visual-slot">
+
+            <!-- GIF cuando el timer está activo -->
             <img
               id="timerRunningImage"
               class="timer-running-image hidden"
               alt="Timer running"
             />
 
+            <!-- Texto cuando el timer está parado -->
             <p id="timerIdleText" class="timer-idle-text">
               Let's record your knitting time, shall we?
             </p>
           </div>
 
-
+          <!-- Timer -->
           <h2>Project Timer</h2>
           <p id="modalTimerText">00:00:00</p>
 
+          <!-- Botones del timer -->
           <div class="timer-buttons">
             <button id="modalStartTimerBtn">Start</button>
             <button id="modalResetTimerBtn">Reset</button>
@@ -87,15 +115,19 @@
       </div>
     </section>
 
+    <!-- Pantalla de celebración al completar milestone -->
     <section id="celebrationScreen" class="screen">
       <div id="p5-container"></div>
       <h1>YES! HOORAY!</h1>
       <p>A milestone is complete 🎉</p>
+
+      <!-- Volver al proyecto -->
       <button id="closeCelebrationBtn" class="main-btn">Continue</button>
     </section>
+
   </div>
 
-  
+  <!-- Script principal de la app -->
   <script type="module" src="/src/main.js"></script>
 </body>
 

@@ -47,7 +47,7 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   padding-top: 40px;
-  padding-inline:20px;
+  padding-inline: 20px;
   box-sizing: border-box;
 }
 
@@ -80,7 +80,7 @@ h1 {
   margin-top: 0;
   opacity: 0.7;
   font-family: "Manrope";
-  font-weight:800
+  font-weight: 800;
 }
 
 .main-btn,
@@ -91,7 +91,7 @@ button {
   background: #705d5d;
   color: white;
   font-weight: 600;
-  font-family: "Manrope"
+  font-family: "Manrope";
 }
 
 .back-btn {
@@ -135,7 +135,6 @@ input {
     font-weight: 400;
     margin-top: 10px;
     font-weight: 800;
-    
   }
   .stats-line {
     display: flex;
@@ -148,19 +147,18 @@ input {
     .status-title {
       color: rgb(30, 30, 30);
       margin: 0;
-      
     }
     .progress-pill {
       margin: 0;
       background-color: #705d5d;
-      color:white;
+      color: white;
       width: 50px;
       height: 30px;
       align-items: center;
       justify-content: center;
       display: flex;
       border-radius: 30px;
-      font-weight:800;
+      font-weight: 800;
     }
   }
 }
@@ -325,7 +323,6 @@ li.done span {
   margin-bottom: 12px;
 }
 
-
 #projectImage {
   width: 100%;
   margin: 12px 0;
@@ -340,7 +337,6 @@ li.done span {
   border-radius: 18px;
   display: block;
 }
-
 
 .timer-running-image {
   width: 120px;

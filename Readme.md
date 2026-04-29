@@ -1,185 +1,296 @@
-# Pomodoro App (Capacitor + Android)
+# knitTracker (Capacitor + Android)
 
-This project was created to explore how to use **native Android features** from a web application using Capacitor.
+This project explores how to use native Android features inside a web-based application using Capacitor.
+
+---
 
 ## 🧠 Overview
 
-The app is built with a web stack (Vite + JavaScript) and then wrapped into a native Android app using Capacitor. This allows the use of device features such as camera, storage, and more.
+**knitTracker** is a project-based time tracking app designed for knitting workflows.
+
+Built with a web stack (Vite + JavaScript) and wrapped as a native Android app using Capacitor, it allows access to device features such as haptics and storage.
+
+### Key features
+
+- Project-based organization
+- Milestone tracking
+- Time tracking per project
+- Progress visualization (%)
+- Positive feedback system (celebration messages)
 
 ---
 
-## ⚙️ Setup
+## 📱 Capacitor Usage
 
-### 1. Install Capacitor
+- Web app converted into Android app using Capacitor
+- Haptics plugin adds vibration feedback
+- LocalStorage used for persistence
+- Real device testing required for full haptics support
 
-```bash
-npm install @capacitor/core @capacitor/cli --save
+---
+
+## ⚡ Challenges & Learnings
+
+- **Manual navigation architecture**  
+  No routing library was used, requiring custom screen/state handling.
+
+- **UI state management (CSS + JS)**  
+  Synchronizing visual states with logic required careful coordination.
+
+- **Capacitor workflow complexity**  
+  Understanding the build → sync → run cycle was key.
+
+- **Platform limitations**  
+  Emulator support for haptics is inconsistent, requiring real device testing.
+
+- **Data persistence decisions**  
+  Using localStorage simplified implementation but limits scalability.
+
+- **UX design evolution**  
+  The app evolved from a simple timer into a structured project-based system.
+
+---
+
+## 🎨 Initial Concept
+
+These sketches show the early interface ideas before implementation.
+
+![Sketch 1](./src/assets/images/bocetos_idea_inicial.jpg)
+
+---
+
+## 🚀 How to Use
+
+### Step 1 — Create a project
+
+<p align="center">
+  <img src="./src/assets/videos/funcionamiento_paso1.gif" width="260" />
+</p>
+
+---
+
+### Step 2 — Add milestones
+
+<p align="center">
+  <img src="./src/assets/videos/funcionamiento_paso2.gif" width="260" />
+</p>
+
+---
+
+### Step 3 — Track time
+
+<p align="center">
+  <img src="./src/assets/videos/funcionamiento_paso3.gif" width="260" />
+</p>
+
+---
+
+## 🇪🇸 Versión en Español (completa)
+
+<details>
+<summary><strong>Ver versión en Español</strong></summary>
+
+### 🧠 Descripción general
+
+KnitTracker es una aplicación para gestionar proyectos de tejido.
+
+Permite:
+
+- Crear proyectos
+- Definir milestones
+- Medir el tiempo invertido
+- Visualizar el progreso
+
+Incluye refuerzos positivos mediante mensajes celebratorios al completar objetivos.
+
+---
+
+### 💡 Proceso de ideación
+
+La app nace como una herramienta para ayudar a tejedoras a organizar su tiempo en múltiples proyectos simultáneamente.
+
+Permite:
+
+- Registrar en qué parte del proyecto estás
+- Medir tiempo dedicado
+- Visualizar progreso en porcentaje
+- Mantener motivación mediante feedback positivo
+
+---
+
+### 🧱 Estructura del proyecto
+
+project-folder/
+│
+├── src/
+│ ├── assets/
+│ │ ├── images/
+│ │ ├── fonts/
+│ │ └── sounds/
+│ │
+│ ├── main.js
+│ ├── style.css
+│ └── sketch.js
+│
+├── index.html
+├── package.json
+├── vite.config.js
+│
+├── dist/
+├── android/
+└── README.md
+
+---
+
+### 📦 Dependencias principales
+
+```json
+{
+  "@capacitor/core": "^5.x",
+  "@capacitor/cli": "^5.x",
+  "@capacitor/haptics": "^5.x",
+  "p5": "^1.9.x"
+}
+
+🔢 Versiones
+Node.js: v18+
+npm: v9+
+Vite: ^5.x
+Capacitor: ^5.x
+Android Studio: Flamingo o superior
+Android SDK: API 33 / 34
+
+</details>
+
+<details> <summary><strong>Project Explanation (English)</strong></summary>
+
+Concept
+
+KnitTracker is a productivity app tailored for knitting workflows.
+
+It enables users to manage multiple projects simultaneously by combining:
+
+structured milestones
+time tracking
+progress visualization
+Core idea
+
+The goal is to centralize project tracking into a single interface where users can:
+
+log their progress
+track time spent
+stay motivated through feedback
+Technical approach
+Built with Vite + JavaScript
+Wrapped using Capacitor
+Uses LocalStorage for persistence
+Integrates native features (Haptics)
+Design evolution
+
+The app evolved from:
+➡️ a simple timer
+➡️ into a structured project management tool
+
+This required rethinking:
+
+navigation
+data structure
+user flow
+</details>
+
+## Challenges 
+
+## ⚡ Challenges & Learnings
+
+Working on this project helped me understand the differences between building a web app and turning it into a native Android application. One of the main challenges was getting familiar with the Capacitor workflow, especially the need to build, sync, and run the project outside the browser to see changes reflected on the device.
+
+Another challenge was working with native features like haptic feedback. Testing this functionality showed the limitations of emulators, which made it necessary to use a real device to properly verify the experience.
+
+Handling data with localStorage also required attention, particularly making sure that project information, progress, and time tracking stayed consistent across sessions.
+
+Overall, the project evolved from a simple timer into a more structured tool, which led me to rethink the user flow and focus on keeping the app both functional and easy to use. It also helped me understand the importance of small UX details, such as providing feedback to the user through visual progress and simple interactions.
+
+## How to run the App
+
+Install dependecies
+
+‘npm install‘
+
+Build the App
+
+‘npm run build‘
+
+Sync with Android
+
+‘npx cap sync android‘
+
+
+Open in Android Studio
+
+‘npx cap open android‘
+
+Run the app
+
+Open Android Studio
+Start an emulator (Device Manager)
+on Device Manager I chose Pixel 5 API 33 / 34
+Click Run ▶️
+
+
+📝 Notes
+Haptics work best on real devices
+Emulator behavior may vary
+Always rebuild before syncing
 ```
 
----
 
-### 2. Initialize Capacitor
+## 📚 References & Learning Resources
 
-```bash
-npx cap init
-```
+This project was developed by combining official documentation and practical tutorials.
 
-This links your web project to a native app and creates the base Capacitor configuration.
+### 📖 Official Documentation
 
----
+- Capacitor Documentation  
+  https://capacitorjs.com/docs
 
-## 📁 Project Structure
+- Capacitor Haptics API  
+  https://capacitorjs.com/docs/apis/haptics
 
-After setup, your project should look like this:
+- Vite Documentation  
+  https://vitejs.dev/guide/
 
-```text
-capacitor_app/
-  ├── src/           # Web app source code
-  ├── index.html
-  ├── package.json
-  ├── dist/          # Production build (generated)
-  ├── android/       # Native Android project (generated)
-```
+- Android Studio Documentation  
+  https://developer.android.com/studio
+
+- Web Storage API (localStorage)  
+  https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
 ---
 
-## 🚀 Build and Add Android Platform
+### Video Resources
 
-First, build your web app:
+- "Capacitor Crash Course"  
+  https://www.youtube.com/watch?v=4n6X9y6Zy6Q
 
-```bash
-npm run build
-```
+- "Build Android Apps with Capacitor"  
+  https://www.youtube.com/watch?v=8s3vP3k5s0E
 
-Then add the Android platform:
+- "Vite JS Crash Course"  
+  https://www.youtube.com/watch?v=KCrXgy8qtjM
 
-```bash
-npx cap add android
-```
-
-This will generate the native Android project inside the `android/` folder.
+- "Understanding localStorage in JavaScript"  
+  https://www.youtube.com/watch?v=GihQAC1I39Q
 
 ---
 
-## 📱 Run in Android Studio
+### Additional Learning
 
-To open the project in Android Studio:
-
-```bash
-npx cap open android
-```
-
-From there:
-
-* Select an emulator or device
-* Click ▶️ Run to launch the app
+- Experimentation with native features through Capacitor plugins  
+- Testing differences between emulator and real devices  
+- Iterative UI design and UX improvements  
 
 ---
 
-## 🔄 Development Workflow
+### ⚠️ Note
 
-Whenever you make changes to your web app:
-
-```bash
-npm run build
-npx cap copy
-```
-Every time you change code:
-
-You MUST do: (this is what I am doing)
-
-`npm run build`
-`npx cap sync android`
-
-Then re-run the app from Android Studio.
-
-press run again
-- top bar -> green button
-- make sure the emulator is selected
-
----
-
-## Running the App on Android Emulator
-
-This project uses **Vite + Capacitor + Android Studio**. Follow these steps to run the app on an Android emulator.
-
-### 1. Install dependencies
-
-```bash
-npm install
-```
-
----
-
-### 2. Build the web app
-
-```bash
-npm run build
-```
-
-This generates the production files in the `dist/` folder.
-
----
-
-### 3. Sync with Android
-
-```bash
-npx cap sync android
-```
-
-This copies the built web app into the Android project.
-
----
-
-### 4. Open in Android Studio
-
-```bash
-npx cap open android
-```
-
----
-
-### 5. Create and start an emulator
-
-In Android Studio:
-
-1. Go to **Tools → Device Manager**
-2. Click **Create Device**
-3. Choose a device (e.g. Pixel 5)
-4. Select a system image (recommended: API 33 or API 34 with Google APIs)
-5. Download the image if prompted
-6. Click **Finish**
-7. Press ▶️ to start the emulator
-
----
-
-### 6. Run the app
-
-* Select the emulator at the top of Android Studio
-* Click the green **▶️ Run** button
-
-The app will install and open on the emulator.
-
----
-
-### 7. Updating the app
-
-Every time you make changes, run:
-
-```bash
-npm run build
-npx cap sync android
-```
-
-Then re-run the app from Android Studio.
-
----
-
-### Notes
-
-* Haptic feedback only works on a real device or emulator
-* First emulator launch may take a few minutes
-* If the app shows a blank screen, ensure you ran `npm run build` before syncing
-
----
-
+This project was built as a learning exercise to understand how web applications can be extended with native mobile capabilities.
